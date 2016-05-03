@@ -1,0 +1,33 @@
+
+<h3>Diagnosis Dashboard</h3>
+<script type="text/javascript">
+       var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function()
+                    {
+                        if (xhttp.readyState == 4 && xhttp.status == 200)
+                        {
+                            var result = JSON.parse(xhttp.responseText);
+                            console.log(result);
+                            for(var o in result[0].obs)
+			                {
+			                    document.write(o,'<br/>')
+			                }
+                         }
+                    };
+                    xhttp.open("GET", "dashboard/show", true);
+                    xhttp.send();
+
+
+</script>
+<table border="1px" width="100%">
+<% @times.each do |time| %>
+	<tr>
+		<td width="50%"><%= time[0] %></td><td width="50%"><%= time[1] %></td>
+
+	</tr>
+
+<% end %>
+</table>
+
+
+ 
